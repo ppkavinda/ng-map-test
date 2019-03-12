@@ -1,0 +1,7 @@
+  <form [formGroup]="loginForm">
+    <input type="email" formControlName="email" id="email">
+    <input type="password" formControlName="password" id="password">
+    <input type="submit" value="signIn" (click)="tryLogin(loginForm.value)">
+    <button (click)="tryGoogleLogin(loginForm.value)"></button>
+  </form>
+

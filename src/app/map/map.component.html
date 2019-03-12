@@ -1,0 +1,22 @@
+<agm-map #AgmMap (mapReady)="onMapReady($event)" [latitude]="homesLat" [longitude]="homesLng" [zoom]="zoom"
+  [fitBounds]="true">
+  <div *ngFor="let point of points | async">
+    <agm-marker *ngIf="point.location" [latitude]="point.location.latitude"
+      [longitude]="point.location.longitude">
+      </agm-marker>
+
+  </div>
+  <!-- 
+  <agm-marker [agmFitBounds]="true" [latitude]="homesLat" [longitude]="homesLng"></agm-marker> -->
+  <!-- <agm-marker [agmFitBounds]="true" [latitude]="middlesLat" [longitude]="middlesLng"></agm-marker> -->
+  <agm-direction [origin]="origin" [destination]="destination" [waypoints]="waypoints" (onChange)="change($event)">
+  </agm-direction>
+  <!-- <agm-polyline>
+          <agm-polyline-point [latitude]="phonesLat" [longitude]="phonesLng">
+          </agm-polyline-point>
+          <agm-polyline-point [latitude]="middlesLat" [longitude]="middlesLng">
+          </agm-polyline-point>
+      </agm-polyline> -->
+</agm-map>
+<button (click)="onZoom()">+</button>
+<button (click)="onZoomOut()">-</button>
